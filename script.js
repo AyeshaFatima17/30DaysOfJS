@@ -1,16 +1,17 @@
-function clockUpdate() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-}
-setInterval(clockUpdate, 1000);
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("openModalBtn");
+const span = document.getElementsByClassName("close")[0];
 
-function currentDate() {
-    const now = new Date();
-    const day = String(now.getDate()).padStart(2, "0");
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const year = now.getFullYear();
-    document.getElementById('date').textContent = `${day}/${month}/${year}`;
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
